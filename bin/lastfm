@@ -3,4 +3,4 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 require 'lastfm'
 
-puts Lastfm::Cli.new(ARGV).run
+puts Lastfm.execute(ARGV)

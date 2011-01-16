@@ -1,7 +1,7 @@
 require 'optparse'
 
 module Lastfm
-  class Cli
+  class Command
     attr_reader :options
 
     def initialize(argv)
@@ -40,6 +40,10 @@ module Lastfm
 
         opt.on('-l', '--location LOCATION', '# location name') do |location|
           @options[:location] = location
+        end
+
+        opt.on('--api-key API', '# Last.fm API_KEY to user its services') do |api_key|
+          @options[:api_key] = api_key
         end
 
         opt.on('-h', '--help', '# command line help') do |help|
