@@ -13,7 +13,7 @@ module Lastfm
     def run
       case @argv.last
       when 'events'
-        'called events'
+        client.events(@options)
       else
         if @options[:help]
           opt_parser
@@ -24,6 +24,10 @@ module Lastfm
     end
 
     private
+
+    def client
+      @client ||= Lastfm::Client.new
+    end
 
     def parse_options
       opt_parser.parse!(@argv)
