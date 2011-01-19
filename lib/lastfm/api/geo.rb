@@ -2,7 +2,7 @@ require File.expand_path('../../data/event', __FILE__)
 
 module Lastfm
   class API
-    module Event
+    module Geo
       def events(options)
         response = get('geo.getevents', options)
         events = Lastfm::Data::Event.parse(response.body)
