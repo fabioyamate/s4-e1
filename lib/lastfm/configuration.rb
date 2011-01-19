@@ -8,18 +8,13 @@ module Lastfm
     end
 
     def config
-      @config ||= begin
-                    YAML::load(config_file)
-                  rescue
-                    {}
-                  end
+      @config ||= File.exists?(config_file) ? YAML::load_file(config_file) : {}
     end
 
     protected
 
     def config_file
-      File.open(File.join(Dir.home, '.lastfmrc'))
+      File.join(Dir.home, '.lastfmrc')
     end
-
   end
 end
