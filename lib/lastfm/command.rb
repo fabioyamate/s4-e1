@@ -4,7 +4,7 @@ module Lastfm
   class Command
     attr_reader :options
 
-    AVAILABLE_COMMANDS = %w(events top_artists)
+    AVAILABLE_COMMANDS = %w(events top_artists top_tracks)
 
     def initialize(argv)
       @argv = argv

@@ -1,5 +1,6 @@
 require File.expand_path('../../data/event', __FILE__)
 require File.expand_path('../../data/artist', __FILE__)
+require File.expand_path('../../data/track', __FILE__)
 
 module Lastfm
   class API
@@ -24,6 +25,17 @@ module Lastfm
         output << "-"*output.first.length
         artists.each do |artist|
           output << "##{artist.rank}: #{artist.name} with #{artist.listeners} listeners."
+        end
+        output.join("\n")
+      end
+
+      def top_tracks(options)
+        response = get('geo.gettoptracks', options)
+        tracks = Lastfm::Data::Track.parse(response.body)
+        output = ["Results for Top Tracks in #{options[:country]}"]
+        output << "-"*output.first.length
+        tracks.each do |track|
+          output << "##{track.rank}: #{track.name} with #{track.listeners} listeners."
         end
         output.join("\n")
       end
