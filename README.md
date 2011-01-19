@@ -28,21 +28,26 @@ create a Last.fm account and then request access to the API [1]
 
 After that, you need to pass the api-key to the command line:
 
+<pre>
   $ ./bin/lastfm --api-key API_KEY --location boston events
+</pre>
 
 Since you will need to pass the api key for every request, it's possible to
 setup an ~/.lastfmrc with the api_key. For example:
 
+<pre>
 ~/.lastfmrc file
 api_key: MY_API_KEY
+</pre>
 
-So, you don't need to pass the --api-key option every time.
+So, you don't need to pass the `--api-key` option every time.
 
 Output
 ------
 
 Requesting Top Tracks from United States
 
+<ptr>
   $ ./bin/lastfm -c "united states" top_tracks
   Results for Top Tracks in united states
   ---------------------------------------
@@ -96,12 +101,14 @@ Requesting Top Tracks from United States
   #48: The Grid with 2898 listeners.
   #49: Empty Room with 2897 listeners.
   #50: Recognizer with 2871 listeners.
+</pre>
 
 Since the command uses STDO and STDIN, it is possible to use terminal commands
 to it.
 
 Like, retrieve the 2nd most listened track, you could use:
 
+<pre>
   $ ./bin/lastfm --country "united states" top_tracks | grep "#2"
   #2: Hold It Against Me with 5543 listeners.
-
+</pre>
