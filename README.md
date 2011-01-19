@@ -47,7 +47,7 @@ Output
 
 Requesting Top Tracks from United States
 
-<ptr>
+<pre>
   $ ./bin/lastfm -c "united states" top_tracks
   Results for Top Tracks in united states
   ---------------------------------------
