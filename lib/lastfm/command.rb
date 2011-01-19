@@ -39,7 +39,9 @@ module Lastfm
         opt.banner = 'Usage: lastfm [options] <command>'
         opt.separator ''
         opt.separator 'Commands'
-        opt.separator '    events   # retrieve events from a specific location'
+        opt.separator '    events       # retrieve events from a specific location'
+        opt.separator '    top_artists  # retrieve ranking of artists from a specific country'
+        opt.separator '    top_tracks   # retrieve ranking of tracks from a specific country/location'
         opt.separator ''
         opt.separator 'Options'
 
