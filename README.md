@@ -103,7 +103,7 @@ Requesting Top Tracks from United States
   #50: Recognizer with 2871 listeners.
 </pre>
 
-Since the command uses STDO and STDIN, it is possible to use terminal commands
+Since the command uses STDOUT and STDIN, it is possible to use terminal commands
 to it.
 
 Like, retrieve the 2nd most listened track, you could use:
