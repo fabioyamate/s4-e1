@@ -4,6 +4,8 @@ module Lastfm
   class Command
     attr_reader :options
 
+    AVAILABLE_COMMANDS = %w(events top_artists)
+
     def initialize(argv)
       @argv = argv
       @options = {}
@@ -11,9 +13,8 @@ module Lastfm
     end
 
     def run
-      case @argv.last
-      when 'events'
-        client.events(@options)
+      if AVAILABLE_COMMANDS.include?(@argv.last)
+        client.send(@argv.last, @options)
       else
         if @options[:help]
           opt_parser
@@ -44,6 +45,10 @@ module Lastfm
 
         opt.on('-l', '--location LOCATION', '# location name') do |location|
           @options[:location] = location
+        end
+
+        opt.on('-c', '--country COUNTRY', '# country name') do |country|
+          @options[:country] = country
         end
 
         opt.on('--api-key API', '# Last.fm API_KEY to user its services') do |api_key|
